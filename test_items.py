@@ -1,10 +1,10 @@
-import time
+from selenium.webdriver.common.by import By
 
-link = 'http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/'
+link = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/"
 
 
-def test_button_add_to_cart(browser): 
+def test_check_add_to_cart_button(browser):
     browser.get(link)
-    # time.sleep(30)
-    button = browser.find_element_by_css_selector('button.btn-add-to-basket').get_attribute('value')
-    assert len(button) > 0, 'Add to cart button not found'
+    button = browser.find_elements(By.CSS_SELECTOR, '.btn-add-to-basket')
+    assert button, 'Add to cart button not found'
+    
